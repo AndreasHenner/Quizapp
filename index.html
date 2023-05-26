@@ -1,14 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap file -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
     <title>Quizapp</title>
-</head>
-<body>
-    
-</body>
+  </head>
+
+  <body onload="init()">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">QuizApp</span>
+      </div>
+    </nav>
+
+    <div id="container" class="container">
+      <div class="card quiz-card">
+        <img id="header-img" src="./img/questionmark.jpg" class="card-img-top" />
+
+        <div class="progress"role="progressbar"aria-label="Example with label"aria-valuenow="0 aria-valuemin="0" aria-valuemax="100">
+          <div id="percent-status"class="progress-bar"style="width: 25%"></div>
+        </div>
+
+        <div class="card-body" id="endscreen" style="display: none">
+
+          <div class="text-center final-headline">Quiz beendet!</div>
+
+          <div class="text-center endresult">Deine Punkte <b id="amount-of-right-questions">8</b> / <b id="amount-of-questions"></b></div>
+
+          <div class="text-center">
+            <button class="button-row btn btn-primary" onclick="restartQuiz()">Quiz erneut spielen</button>
+         </div>
+
+        </div>
+
+      
+        <div class="card-body" id="question-body">
+          <h5 class="card-title" id="questiontext">Frage</h5>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer(`answer_1`)">
+            <div class="card-body" id="answer_1">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer(`answer_2`)">
+            <div class="card-body" id="answer_2">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer(`answer_3`)">
+            <div class="card-body" id="answer_3">Antwort</div>
+          </div>
+
+          <div class="card quiz-answer-card mb-3" onclick="answer(`answer_4`)">
+            <div class="card-body" id="answer_4">Antwort</div>
+          </div>
+
+          <div class="question-footer">
+            <span
+              ><b id="current-question">1</b> von
+              <b id="all-questions"></b> Fragen</span
+            >
+            <button
+              onclick="nextQuestion()"
+              id="next-button"
+              disabled
+              class="btn btn-primary"
+            >
+              nächste Frage
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
